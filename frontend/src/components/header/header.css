@@ -1,0 +1,114 @@
+.navbar {
+  width: 100%;
+  height: 10rem;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+  
+}
+
+#navbar-logo {
+  height: 100%;
+  width: 243px;
+  padding-left: 0rem;
+}
+
+#logo-img {
+  width: 243px;
+  height: 112px;
+  transform: scale(1.5);
+}
+
+.navbar-links {
+  list-style: none;
+  width: 30.01rem;
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 6.3rem;
+  padding-top: 1rem;
+}
+
+.nav-btn {
+  outline: none;
+  border-radius: 1.3rem;
+}
+
+#login-btn {
+  width: 12.5rem;
+  height: 5rem;
+  border: 0.5px solid var(--white);
+  background-color: var(--greyish-black);
+  font-family: var(--font-inter);
+  font-size: 1.6rem;
+  color: var(--white);
+  transition: .1s ease-in;
+}
+
+#login-btn:hover{
+      transform: scale(1.03);
+  opacity: .90;
+}
+
+#register-btn {
+  width: 15.7rem;
+  height: 5rem;
+  box-shadow: .8rem 0.2rem 2.2rem var(--primary-blue);
+  border: none;
+  background-color: var(--primary-blue);
+  font-family: var(--font-inter);
+  font-size: 1.6rem;
+  color: var(--white);
+    transition: .1s ease-in;
+}
+
+#register-btn:hover{
+    transform: scale(1.03);
+  opacity: .90;
+}
+
+.hamburger-wrapper {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 6px; /* Smaller font size for small devices */
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-logo {
+    margin: auto;
+  }
+}
+
+/* Medium devices (tablets) */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 7.5px; /* Adjust slightly for tablet screens */
+  }
+}
+
+/* Large devices (desktops) */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 8.5px; /* Default size for larger screens */
+  }
+}
+
+/* Extra large devices (4k, large desktops) */
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 10px; /* Larger font size for large screens */
+  }
+}
