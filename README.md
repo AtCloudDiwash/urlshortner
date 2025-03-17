@@ -1,5 +1,5 @@
 Step 1: Clone the Repository
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/AtCloudDiwash/urlshortner.git
 cd url-shortener-app
 
 Step 2: Setup Backend (Express.js)
