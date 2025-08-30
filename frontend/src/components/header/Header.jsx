@@ -13,23 +13,6 @@ const Header = () => {
             id="logo-img"
           />
         </div>
-
-        {/* <div className="hamburger-wrapper">
-          <img src={hamburgerIcon} alt="" />
-        </div> */}
-
-        <ul className="navbar-links" id="navbar-links">
-          <li className="nav-item" id="login-button">
-            <button className="nav-btn" id="login-btn">
-              Log In
-            </button>
-          </li>
-          <li className="nav-item" id="register-button">
-            <button className="nav-btn" id="register-btn">
-              Register Now
-            </button>
-          </li>
-        </ul>
       </nav>
     </>
   );

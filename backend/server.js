@@ -4,20 +4,16 @@ const { connectMongo } = require("./connect");
 const urlRoute = require("./urlRouter");
 const cors = require("cors");
 const URL = require("./models/url");
-
-const PORT = 3001;
+const mongo_url_cluster = require("dotenv").config();
+const PORT = process.env.PORT;
 
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
+app.use(cors());
 
 app.use("/url", urlRoute);
 
-connectMongo("mongodb://localhost:27017/url_shortner")
+connectMongo(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to database");
   })
@@ -25,21 +21,32 @@ connectMongo("mongodb://localhost:27017/url_shortner")
     console.log(error);
   });
 
-app.get("/:shortID", async (req, res) => {
-  const shortId = req.params.shortID;
+  app.get("/:shortID", async (req, res) => {
+    const shortId = req.params.shortID;
 
-  const entry = await URL.findOneAndUpdate(
-    { shortId },
-    {
-      $push: {
-        visitHistory: {
-          timestamps: Date.now(),
+    try {
+      const entry = await URL.findOneAndUpdate(
+        { shortId },
+        {
+          $push: {
+            visitHistory: {
+              timestamp: Date.now(),
+            },
+          },
         },
-      },
+        { new: true }
+      );
+
+      if (!entry) {
+        return res.status(404).send("Short URL not found");
+      }
+
+      res.redirect(entry.redirectUrl);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
     }
-  );
-  res.redirect(entry.redirectUrl);
-});
+  });
 
 
 app.listen(PORT, () => {

@@ -5,6 +5,8 @@ import Table from "./../table/Table";
 
 const UrlContext = createContext({});
 
+const SERVER_URL = import.meta.env.VITE_API_URL;
+
 export default function Content() {
   const [url, setUrl] = useState("");
   const [shortenedUrl, setShortenedUrl] = useState("");
@@ -17,7 +19,7 @@ export default function Content() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/url", {
+      const response = await fetch(`${SERVER_URL}/url`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +29,7 @@ export default function Content() {
 
       if (response.ok) {
         const data = await response.json();
-        setShortenedUrl(`http://localhost:3001/${data.id}`);
+        setShortenedUrl(`${SERVER_URL}/${data.id}`);
       } else {
         console.error("Error:", response.statusText);
       }
