@@ -15,7 +15,7 @@ export default function Content() {
     setUrl(e.target.value);
   };
 
-  const shortenRequest = async (e) => {
+  const shortenRequest = async (e) =>  {
     e.preventDefault();
 
     try {
