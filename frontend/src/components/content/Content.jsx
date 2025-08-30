@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import "./Content.css";
+import "./content.css";
 import url_icon from "./../../assets/url_icon.svg";
 import Table from "./../table/Table";
 
